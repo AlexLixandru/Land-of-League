@@ -70,7 +70,7 @@ function App() {
     }
   }
 
-
+  if(active) {
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -83,7 +83,7 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-    <Hero onClick = { active ? handleDisconnect() : createConnectHandler(Object.keys(connectors)[2])}  />
+    <Hero text = {`Hi ${userDomain}! Welcome to the Land of League community!`} onClick = {()=>{handleDisconnect()}} />
       <Container>
         <div className="row-margin-top">
           <Row xs={1} md={3} className="g-4">
@@ -132,6 +132,23 @@ function App() {
       </div>
     </div>
   );
+            }else{
+              return(
+<div className="App">
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Land of League</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features" >Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    <Hero text ="Welcome to Land of League. Please Sign In to continue!" onClick = {createConnectHandler(Object.keys(connectors)[2])}  />
+    </div>
+              )
+            }
 }
 
 export default App;

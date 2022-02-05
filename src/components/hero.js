@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Hero = ({onClick}) => {
+const Hero = ({text ,onClick}) => {
   const classes = useStyles();
 
   return (
@@ -51,7 +51,7 @@ const Hero = ({onClick}) => {
           color="#fff"
         >
           <Typography variant="h3" component="h1" className={classes.title}>
-            Welcome to Land of League. Please Sign In to continue!
+            {text}
           </Typography>
           <img
             className="login-button login-ripple"
