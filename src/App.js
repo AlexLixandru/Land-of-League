@@ -7,25 +7,21 @@ import Card from "./components/Card";
 import ImagePlaceholder from "./components/ImagePlaceholder";
 import Footer from "./components/Footer";
 import connectors from "./connectors.ts";
-// import moralisConnector from "./moralisConnector";
+import moralisConnector from "./moralisConnector";
 import { useWeb3React } from "@web3-react/core";
 import React, { useState, useEffect } from "react";
 
 
 
-import { makeStyles } from "@mui/styles";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import ReactPlayer from "react-player";
-import heroVideo from "./assets/heroVideo.mp4";
-import buttonImageDefault from "./assets/login-default.png";
-
-
-
 function App() {
   const [userDomain, setUserDomain] = useState("");
+  
+  const [communityMemberStatus, setCommunityMemberStatus] = useState(true); //TODO: CHANGE THIS TO FALSE FOR PROD
+  const addressOfCommunityNFT = "0xfd1dbd4114550a867ca46049c346b6cd452ec919";
 
   const { active, account, activate, deactivate } = useWeb3React();
+
+  
 
   function createConnectHandler(connectorId) {
     return async () => {
@@ -45,12 +41,22 @@ function App() {
         console.log("4")
 
         setUserDomain(connector.uauth.store.storage["uauth-default-username"]);
-        // const NFTs = await moralisConnector.moralisStartAndGetNFTs(account);
+        const NFTs = await moralisConnector.moralisStartAndGetNFTs(account);
 
-        // const NftArray = NFTs.result;
-        // for (let i = 0; i < NftArray.length; i++) {
-        //   const metaDataJson = JSON.parse(NftArray[i].metadata);
-        // }
+        const NftArray = NFTs.result;
+        console.log(NFTs);
+        for (let i = 0; i < NftArray.length; i++) {
+          console.log("Address = "+NftArray[i].token_address + typeof(NftArray[i].token_address))
+          if(NftArray[i].token_address === addressOfCommunityNFT){
+            console.log("entered")
+            setCommunityMemberStatus(true);
+          }
+
+          // const metaDataJson = JSON.parse(NftArray[i].metadata);
+          // console.log(metaDataJson);
+        }
+        console.log("community "+ communityMemberStatus);
+
         console.log("5")
         console.log(active)
       } catch (error) {
@@ -70,7 +76,7 @@ function App() {
     }
   }
 
-  if(active) {
+  if(active && communityMemberStatus) {
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -132,7 +138,23 @@ function App() {
       </div>
     </div>
   );
-            }else{
+            } else if(active && !communityMemberStatus){
+              return(
+                <div className="App">
+                      <Navbar bg="dark" variant="dark">
+                        <Container>
+                          <Navbar.Brand href="#home">Land of League</Navbar.Brand>
+                          <Nav className="me-auto">
+                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#features" >Features</Nav.Link>
+                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                          </Nav>
+                        </Container>
+                      </Navbar>
+                    <Hero text ={`Hi ${userDomain}! You do not seem to have the required community token!`} onClick ={()=>{handleDisconnect()}}  />
+                    </div>
+                              )
+               } else {
               return(
 <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -150,5 +172,4 @@ function App() {
               )
             }
 }
-
 export default App;
