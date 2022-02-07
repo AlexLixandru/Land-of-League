@@ -1,44 +1,33 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
+import Image1 from "./../assets/carousel1.jpg";
+import Image2 from "./../assets/carousel2.jpg";
+import Image3 from "./../assets/carousel3.jpg";
 
 function CarouselElement() {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="http://www.mandysam.com/img/random.jpg"
-          alt="First slide"
-        />
+        <img className="d-block w-100" src={Image1} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Draven</h3>
+          <p>Best overall ADC</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="http://www.mandysam.com/img/random.jpg"
-          alt="Second slide"
-        />
+        <img className="d-block w-100" src={Image2} alt="Second slide" />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Shaco</h3>
+          <p>Best high-skilled jungler</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="http://www.mandysam.com/img/random.jpg"
-          alt="Third slide"
-        />
+        <img className="d-block w-100" src={Image3} alt="Third slide" />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Diana</h3>
+          <p>Best farming jungler</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

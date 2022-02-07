@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Hero = ({text ,onClick}) => {
+const Hero = ({ text, onClick, isLogin }) => {
   const classes = useStyles();
 
   return (
@@ -53,11 +53,13 @@ const Hero = ({text ,onClick}) => {
           <Typography variant="h3" component="h1" className={classes.title}>
             {text}
           </Typography>
-          <img
-            className="login-button login-ripple"
-            onClick={()=>onClick()}  //{createConnectHandler(Object.keys(connectors)[2])}
-            src={buttonImageDefault}
-          />
+          {isLogin && (
+            <img
+              className="login-button login-ripple"
+              onClick={() => onClick()} //{createConnectHandler(Object.keys(connectors)[2])}
+              src={buttonImageDefault}
+            />
+          )}
         </Box>
       </div>
     </section>

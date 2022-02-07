@@ -30,10 +30,75 @@
   color: rgb(134, 134, 134);
 }
 
-.carousel {
-  height: 50vh;
-}
-
 .margin-component {
   margin: 10vh 5% 0;
+}
+
+.image-hover-zoom {
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-hover-zoom:hover {
+  transform: scale(1.5);
+  z-index: 1;
+  transform-origin: 50% 50%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.logo {
+  transform: rotate(10deg);
+}
+
+h1 {
+  font-family: OCR A Std, monospace;
+}
+
+.header-margin-bottom {
+  margin-bottom: 3vh;
+}
+
+.h5-exclusive {
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.h5-exclusive-end {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.exclusive-content-text {
+  margin: 0 50px;
+}
+
+.dropdown > a {
+  color: white;
+}
+
+.dropdown > a:hover {
+  color: rgb(112, 112, 112);
+}
+
+.dropdown > a:focus {
+  color: rgb(112, 112, 112);
+}
+
+.login-button {
+  cursor: pointer;
+  transition: opacity 0s;
+}
+
+.login-button:hover {
+  content: url("./assets/login-hover.png");
+}
+
+.login-ripple:active {
+  opacity: 0.8;
 }
