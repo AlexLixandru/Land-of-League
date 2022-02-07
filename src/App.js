@@ -216,8 +216,7 @@ function App() {
                       {`Our articles and tools
                     can help you gain the knowledge and skills needed as a high
                     rank player in no time. In order to access this content you
-                    just have to login with Unstopable Domains and have in your
-                    wallet one of our NFT's. Only then the content will be
+                    just have to login with Unstoppable Domains and own one of our NFT's. Only then the content will be
                     available to you.`}
                     </h5>
                     <h5 className="h5-exclusive h5-exclusive-end">
