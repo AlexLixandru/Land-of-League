@@ -9,7 +9,7 @@ Our articles and tools can help you gain the knowledge and skills needed as a hi
 
 ## Demo of the Unstoppable Domains integration
 
-- https://compassionate-sammet-38ff49.netlify.app/
+- https://www.youtube.com/watch?v=n9Jo_d_2_2g&ab_channel=AlexLixandru
 
 ### Person of contact:
 

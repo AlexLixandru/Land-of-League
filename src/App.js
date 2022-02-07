@@ -23,7 +23,7 @@ import Logo from "./assets/LandofLeague-logos_transparent.png";
 function App() {
   const [userDomain, setUserDomain] = useState("");
 
-  const [communityMemberStatus, setCommunityMemberStatus] = useState(false); //TODO: CHANGE THIS TO FALSE FOR PROD
+  const [communityMemberStatus, setCommunityMemberStatus] = useState(true); //TODO: CHANGE THIS TO FALSE FOR PROD
   const addressOfCommunityNFT = "0xfd1dbd4114550a867ca46049c346b6cd452ec919";
 
   const { active, account, activate, deactivate } = useWeb3React();
